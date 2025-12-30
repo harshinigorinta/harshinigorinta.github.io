@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harshini Gorinta | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0b0f1a;
+            --secondary-bg: #161b22;
+            --accent-color: #58a6ff; 
+            --text-primary: #f0f6fc;
+            --text-secondary: #8b949e;
+            --card-border: #30363d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: rgba(11, 15, 26, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        #home {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        #home h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 60px;
+        }
+
+        .profile-section-wrapper {
+            margin-top: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .profile-heading {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .profiles-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .profile-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-item i {
+            color: var(--text-primary);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .profile-item span {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .profile-item:hover {
+            transform: translateY(-8px);
+        }
+
+        .profile-item:hover i {
+            color: var(--accent-color);
+        }
+
+        .profile-item:hover span {
+            color: var(--accent-color);
+        }
+
+        section {
+            padding: 100px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h2::after {
+            content: "";
+            height: 1px;
+            flex-grow: 1;
+            background: var(--card-border);
+        }
+
+        .card {
+            background: var(--secondary-bg);
+            border: 1px solid var(--card-border);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            transition: border-color 0.3s;
+        }
+
+        .card:hover { border-color: var(--accent-color); }
+        .card h3 { color: var(--accent-color); margin-bottom: 10px; }
+
+        .project-link, .cert-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 15px;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .project-link:hover, .cert-link:hover {
+            text-decoration: underline;
+            opacity: 0.8;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { background: #1f2937; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; border: 1px solid var(--card-border); }
+
+        .cert-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: var(--secondary-bg);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border: 1px solid var(--card-border);
+        }
+
+        footer {
+            background: var(--secondary-bg);
+            padding: 100px 20px;
+            text-align: center;
+            border-top: 1px solid var(--card-border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-links {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 60px;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: 0.3s;
+        }
+
+        .contact-item i {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-item span {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .contact-item:hover {
+            color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 600px) {
+            #home h1 { font-size: 2.5rem; }
+            .profiles-container { gap: 20px; }
+            .contact-links { gap: 30px; }
+            .cert-item { flex-direction: column; align-items: flex-start; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="home">
+        <h1>Harshini Gorinta</h1>
+        <p class="subtitle">Aspiring Software Engineer</p>
+        
+        <div class="profile-section-wrapper">
+            <h4 class="profile-heading">My Profiles</h4>
+            <div class="profiles-container">
+                <a href="https://www.linkedin.com/in/harshini-gorinta" class="profile-item" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/harshini-gorinta" class="profile-item" target="_blank">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://leetcode.com/u/harshini_gorinta/" class="profile-item" target="_blank">
+                    <i class="fas fa-code"></i>
+                    <span>LeetCode</span>
+                </a>
+                <a href="https://www.hackerrank.com/profile/harshini_gorinta" class="profile-item" target="_blank">
+                    <i class="fab fa-hackerrank"></i>
+                    <span>HackerRank</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Aspiring software engineer seeking to be part of an organization that offers ample opportunities to improve my skills and knowledge, allowing me to contribute to its growth.</p>
+        
+        <div class="card" style="margin-top: 30px;">
+            <h3>Education</h3>
+            <p><strong>B.Tech in Computer Science and Engineering</strong></p>
+            <p>SRKR Engineering College | 2022 - 2026</p>
+            <p>CGPA: 8.6</p>
+            <br>
+            <p><strong>Board of Intermediate Education</strong></p>
+            <p>Tirumala Junior College | 2020 - 2022</p>
+            <p>Percentage: 96.3</p>
+            <br>
+            <p><strong>Board of Secondary Education</strong></p>
+            <p>Tirumala School | 2019 - 2020</p>
+            <p>CGPA: 10</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h4>Programming Languages</h4>
+                <div class="skill-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">JAVA</span>
+                    <span class="tag">C</span>
+                    <span class="tag">C++</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h4>Web & Database</h4>
+                <div class="skill-tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">Javascript</span>
+                    <span class="tag">PHP</span>
+                    <span class="tag">React.js</span>
+                    <span class="tag">REST APIs</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">MongoDB</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h4>Tools & Concepts</h4>
+                <div class="skill-tags">
+                    <span class="tag">Tableau</span>
+                    <span class="tag">Git</span>
+                    <span class="tag">VSCode</span>
+                    <span class="tag">AWS</span>
+                    <span class="tag">OOP</span>
+                    <span class="tag">Data Structures</span>
+                    <span class="tag">DBMS</span>
+                    <span class="tag">OS</span>
+                    <span class="tag">CN</span>
+                    <span class="tag">SDLC</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="card">
+            <h3>Tourism Management System</h3>
+            <p>Created a tourism platform for user registration, tour booking, and feedback using HTML, CSS, JavaScript, PHP, and MySQL.</p>
+            <a href="https://github.com/harshini-gorinta/tourism-management" class="project-link" target="_blank">Link <i class="fas fa-external-link-alt"></i></a>
+        </div>
+        <div class="card">
+            <h3>Mental Health Chatbot</h3>
+            <p>Built an AI emotional support chatbot using Python, Streamlit, and Ollama's Gemma model. Integrated keyword detection to identify distress signs.</p>
+            <a href="https://github.com/harshini-gorinta/mental-health-chatbot" class="project-link" target="_blank">Link <i class="fas fa-external-link-alt"></i></a>
+        </div>
+        <div class="card">
+            <h3>E-commerce Website</h3>
+            <p>Built a three-page shopping platform with React, Bootstrap, and Axios for product data fetching and cart functionality.</p>
+            <a href="https://github.com/harshini-gorinta/ecommerce-react" class="project-link" target="_blank">Link <i class="fas fa-external-link-alt"></i></a>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <h2>Certifications</h2>
+        <div class="cert-list">
+            <div class="cert-item">
+                <div class="cert-info">
+                    <i class="fas fa-certificate"></i>
+                    <div>
+                        <p><strong>Foundation of Cloud IoT Edge ML</strong></p>
+                        <p>NPTEL - Silver Badge</p>
+                    </div>
+                </div>
+                <a href="https://nptel.ac.in/noc/Ecertificate/" class="cert-link" target="_blank">View <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="cert-item">
+                <div class="cert-info">
+                    <i class="fas fa-certificate"></i>
+                    <div>
+                        <p><strong>Programming Essentials in Python</strong></p>
+                        <p>Cisco Networking Academy</p>
+                    </div>
+                </div>
+                <a href="https://www.credly.com/organizations/cisco/badges" class="cert-link" target="_blank">View <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="cert-item">
+                <div class="cert-info">
+                    <i class="fas fa-certificate"></i>
+                    <div>
+                        <p><strong>Infosys Springboard Internship 6.0</strong></p>
+                        <p>Completion Certificate</p>
+                    </div>
+                </div>
+                <a href="https://infyspringboard.onwingspan.com/" class="cert-link" target="_blank">View <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2>Get In Touch</h2>
+        <p>Feel free to reach out for collaborations or opportunities!</p>
+        <div class="contact-links">
+            <a href="mailto:gorintaharshini4114@gmail.com" class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>Email</span>
+            </a>
+            <a href="https://www.linkedin.com/in/harshini-gorinta" target="_blank" class="contact-item">
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/harshini-gorinta" target="_blank" class="contact-item">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+            </a>
+        </div>
+        <p style="margin-top: 80px; color: var(--text-secondary); font-size: 0.8rem;">
+            +91 7989291379 | Harshini Gorinta | © 2024
+        </p>
+    </footer>
+
+</body>
+</html>
